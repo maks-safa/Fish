@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="edecab6278564c439a9f1ae3b1d7e86a" Name="Diagram1">
+        <EntityTypeShape EntityType="FishModel.Material" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishModel.Pynct" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishModel.Role" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishModel.User" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishModel.Zakaz" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="FishModel.FK_Zakaz_Pynct" ManuallyRouted="false" />
+        <AssociationConnector Association="FishModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="FishModel.FK_Zakaz_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FishModel.ListMater" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FishModel.Type" Width="1.5" PointX="0.75" PointY="1.375" />
+        <AssociationConnector Association="FishModel.FK_Material_Type" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

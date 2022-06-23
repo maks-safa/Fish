@@ -1,0 +1,103 @@
+﻿<Page x:Class="Fishing.MyPage.MaterialPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Fishing.MyPage"
+      xmlns:style="clr-namespace:Fishing.MyClass"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MaterialPage">
+    <Page.Resources>
+        <Style x:Key="Low" TargetType="ListViewItem">
+            <Setter Property="Background" Value="Red"/>
+        </Style>
+        <Style x:Key="Normal" TargetType="ListViewItem">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Seach"/>
+                    <TextBox x:Name="TBSeach" TextChanged="TBSeach_TextChanged" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <TextBlock Text="Type"/>
+                    <ComboBox x:Name="CBType" SelectionChanged="CBType_SelectionChanged" DisplayMemberPath="Title" Width="200"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Cost"/>
+                    <ComboBox x:Name="CBCost" SelectionChanged="CBCost_SelectionChanged"  Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <TextBlock Text="Count"/>
+                    <ComboBox x:Name="CBCount" SelectionChanged="CBCount_SelectionChanged" Width="200"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="BTClear" Click="BTClear_Click" Content="Сброс фильтров" Width="200" Grid.Column="2" Height="50"/>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="BTCpicosk" Click="BTCpicosk_Click" Content="Список заказов" Width="200" Grid.Row="3" Grid.ColumnSpan="2" Height="25"/>
+            <Button x:Name="BTZakaz" Click="BTZakaz_Click" Content="Заказы" Width="200" Grid.Row="3" Grid.ColumnSpan="2" Height="25"/>
+            <Button x:Name="BTZakazView" Click="BTZakazView_Click" Content="Заказы" Width="200" Grid.Row="3" Grid.ColumnSpan="2" Height="25"/>
+        </StackPanel>
+        
+        <TextBlock x:Name="TeBNaim" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="TeBCost" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock x:Name="TeBNazad" FontSize="20" MouseDown="TBNazad_MouseDown" Text="&lt;"/>
+            <TextBlock x:Name="TeBFirst" FontSize="20" MouseDown="TBFirst_MouseDown"  Text="1"/>
+            <TextBlock x:Name="TeBSecond" FontSize="20" MouseDown="TBSecond_MouseDown" Text="2"/>
+            <TextBlock x:Name="TeBTherd" FontSize="20" MouseDown="TBTherd_MouseDown" Text="3"/>
+            <TextBlock x:Name="TeBFour" FontSize="20" MouseDown="TBFour_MouseDown" Text="4"/>
+            <TextBlock x:Name="TeBNext" FontSize="20" MouseDown="TBNext_MouseDown" Text=">"/>
+        </StackPanel>
+        <ListView x:Name="LV" Grid.Row="2" HorizontalContentAlignment="Center" Grid.ColumnSpan="2">
+            <ListView.ItemContainerStyleSelector>
+                <style:StyleSelec Low="{StaticResource Low}" Max="{StaticResource Normal}"/>
+            </ListView.ItemContainerStyleSelector>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Title}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Count, StringFormat={}Количество: {0}}" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                        <TextBlock Text="{Binding Cost, StringFormat={}Цена: {0}}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Type.Title, StringFormat={}Тип: {0}}" Grid.Row="2" Grid.Column="1"/>
+                        <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal">
+                            <Button x:Name="BTDobav" Content="Add" Click="BTDobav_Click" Width="100"/>
+                            <Button x:Name="BTRed" Content="Red" Click="BTRed_Click" Width="100"/>
+                            
+                            <Button x:Name="BTDelet" Content="Delet" Click="BTDelet_Click" Width="100"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

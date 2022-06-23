@@ -1,0 +1,55 @@
+﻿<Page x:Class="Fishing.MyPage.AutorizPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Fishing.MyPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AutorizPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="STAutoriz">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Login" Grid.Row="0" Grid.Column="0"/>
+                <TextBlock Text="Pass" Grid.Row="1" Grid.Column="0"/>
+                <TextBox x:Name="TBLog" Grid.Row="0" Grid.Column="1" Height="50" Width="200"/>
+                <TextBox x:Name="TBPass" Grid.Row="1" Grid.Column="1" Height="50" Width="200"/>
+                <PasswordBox x:Name="PBPass" Grid.Row="1" Grid.Column="1" Height="50" Width="200"/>
+                <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button x:Name="BTLogin" Content="Login" Width="200" Click="BTLogin_Click"/>
+                    <Button x:Name="BTGuest" Content="Guest" Width="200" />
+                    <Button x:Name="BTMater" Click="BTMater_Click" Content="Guest" Width="200" />
+                </StackPanel>
+                
+            </Grid>
+            
+        </StackPanel>
+        <StackPanel x:Name="SPCaptch" Visibility="Hidden" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500" Height="200">
+            <TextBlock HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.RowSpan="3"
+                    VerticalAlignment="Center" TextDecorations="Strikethrough" FontSize="22" RenderTransformOrigin="0.5,0.5"
+                    x:Name="txbCaptcha">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="5" AngleX="30"/>
+                        <RotateTransform/>
+
+                    </TransformGroup>
+                </TextBlock.RenderTransform>QWEQW12wq</TextBlock>
+            <TextBox x:Name="TBCaptcha"/>
+            <Button x:Name="BTInput" Content="Input" Click="BTInput_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>
